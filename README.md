@@ -17,7 +17,7 @@ What we can’t understand we call nonsense.
 
 ### A first of its kind framework for researching Reciprocal Recommender Systems (RRSs)
 [![GitHub Release](https://img.shields.io/github/v/release/kdevo/chaos-rrs?style=flat-square&color=%230097a7&logo=github)](https://github.com/kdevo/chaos-rrs/releases/latest)
-[![PDF Download](https://img.shields.io/badge/thesis-PDF-%230097a7?logo=PDF&style=flat-square)](https://github.com/gohugoio/hugo/releases)
+[![PDF Download](https://img.shields.io/badge/thesis-PDF-%230097a7?logo=PDF&style=flat-square)][thesis-pdf]
 
 Chaos is the accompanying proof of concept of my master's thesis 
 "Engineering a Hybrid Reciprocal Recommender System Specialized in Human-to-Human Implicit Feedback" (FH Aachen, February 2021).
@@ -37,7 +37,8 @@ It is currently not meant to be ready for production or commercial applications.
 [Please consult me][contact] to discuss potential use-cases where Chaos could help you or your business with. 
 If applicable, you can also [start a public discussion][discussion].
 
-## Getting started: Experiments
+## Start experimenting 
+### Reproducible Jupyter Lab Notebooks 
 
 This section is a great demonstration of Chaos capabilities and usages.
 Work your way through the steps and take your time to experiment. The [second experiment](#2-chaos-for-github) is an exciting possibility to get to know your personal social GitHub universe!
@@ -48,7 +49,7 @@ Work your way through the steps and take your time to experiment. The [second ex
 2. Conda is needed as a cross-platform package and environment manager. Refer to the [user guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for installation.
 3. Create the `chaos` environment via `	conda env create -f environment.yml` (see also [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file))
 4. Wait until the installation is finished and then activate `chaos` by calling `conda activate chaos`
-5. Trust the notebooks: `jupyter trust notebooks/`
+5. Trust the notebooks `jupyter trust *.ipynb`
 
 ### 1. Intro: Study community example
 
@@ -93,9 +94,9 @@ This section provides a brief and non-complete overview of Chaos features.
 ### Data Model
 
 
-Chaos' `DataModel` is kept relatively simple:
+The `DataModel` of Chaos is simple:
 
-<img alt="Interaction Data Model" align="right" width="400" src="https://raw.githubusercontent.com/kdevo/chaos-rrs/main/.github/graph.png">
+<img alt="Interaction Data Model" align="right" width="380" src="https://raw.githubusercontent.com/kdevo/chaos-rrs/main/.github/graph.png">
 
 - Interactions between users are stored in a graph/network:
     - User `a` is interested in `b` if at least one interaction exists
