@@ -1,0 +1,15 @@
+view:
+  strength: 1
+  description: Occurs when viewing a profile.
+chat:
+  strength: 2.5
+  description: Occurs when sending a chat message.
+friend-request:
+  strength: 3.0
+  description: Occurs when sending a friend request.
+friend-accept:
+  strength: 2.0
+  description: Occurs when accepting a friend request.
+meet:
+  strength: 4.0
+  description: Occurs after a real-life meeting.

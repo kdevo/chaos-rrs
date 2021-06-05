@@ -1,0 +1,4 @@
+[submodule "grapresso"]
+	path = grapresso
+	url = https://github.com/kdevo/grapresso.git
+	branch = dev

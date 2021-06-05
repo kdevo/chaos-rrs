@@ -1,0 +1,16 @@
+from,event,to
+
+Yannick,chat,Anna
+Yannick,chat,Anna
+
+Kai,chat,Christina
+
+Ivan,chat,Louisa
+
+Christina,chat,Kai
+
+Anna,view,Yannick
+Anna,chat,Ivan
+
+Louisa,chat,Yannick
+Louisa,chat,Yannick

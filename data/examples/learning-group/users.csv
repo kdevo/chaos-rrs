@@ -1,0 +1,19 @@
+id,gender,age,course,favorite_drink,preference_filter
+# ISE
+Yannick,male,25,ISE,beer,course == "ISE"
+Horst,male,27,ISE,coffee,favorite_drink == "coffee"
+Kai,male,25,ISE,coffee,age > 22
+Merlin,male,25,ISE,beer,
+Adriana,female,23,ISE,beer,favorite_drink == "beer"
+Léon,male,22,ISE,tea,course == "MCD"
+Ivan,male,32,ISE,beer,favorite_drink != "coffee"
+
+# MCD
+Stefan,male,22,MCD,coffee,
+Andreas,male,23,MCD,coffee,favorite_drink == "coffee"
+Louisa,female,25,MCD,tea,age >= 22
+Vasili,male,23,MCD,tea,course == "MCD"
+Christine,female,24,MCD,beer,
+Laura,female,24,MCD,tea,
+Monica,female,24,MCD,tea,
+Natalia,female,21,MCD,tea,course == "ISE" and age == 21

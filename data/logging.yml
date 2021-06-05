@@ -1,0 +1,43 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  verbose:
+    format: '[%(levelname)s] %(asctime)s - %(name)s - %(message)s'
+  simple:
+    format: '[%(levelname)s] %(asctime)-s - %(name)s - %(message)s'
+    datefmt: '%H:%M'
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: verbose
+    filename: chaos.log
+    maxBytes: 100_000
+    backupCount: 3
+loggers:
+#  chaos.recommend:
+#    until_level: DEBUG
+#    handlers: [console, file]
+#    propagate: False
+#  chaos.recommend.candidates:
+#    until_level: INFO
+#    handlers: [console, file]
+#    propagate: False
+  chaos.process:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: False
+  chaos.recommend.evaluator:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: False
+  chaos.process.pipeline:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: False
+root:
+  level: INFO
+  handlers: [console, file]

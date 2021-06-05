@@ -1,0 +1,50 @@
+name: chaos
+dependencies:
+  # Supported Python version (conda is language-agnostic)
+  - python=3.8
+  # DataModel:
+  - pandas
+  # Feature Engineering etc.:
+  - scikit-learn
+  # Graph library (used by grapresso):
+  - networkx=2.5
+  # Plotting:
+  - matplotlib
+  # Possible CLI capabilities in the future:
+  - click
+  # Progress bar:
+  - tqdm
+  # For projection of embeddings
+  - tensorflow=2.3.0
+  - beautifulsoup4
+  - markdown
+  # ------------------------------------
+  # From conda-forge (community-managed):
+  - conda-forge::jupyterlab=2.1.0
+  # NLP
+  - conda-forge::spacy=2.3.0
+#  - conda-forge::spacy-model-en_core_web_sm=2.3.0
+  - conda-forge::spacy-model-en_core_web_md=2.3.0
+  # Hybrid Model:
+  # Fixed version (newest version lightfm-1.15-py38hab2c0dc_1002-conda-forge/linux-64 is faulty):
+  - conda-forge::lightfm==1.15=py38hc1659b7_1001
+  # Visualizations:
+  - conda-forge::altair
+  # Hyperparameter Tuning:
+  - conda-forge::optuna
+  # GraphQL for GitHub example:
+  - conda-forge::gql=2.0.0
+  # Development dependencies:
+  # ------------------------
+  # Documentation:
+  - sphinx
+  # We use conda as a package manager, but pip for 3rd party packages that are better maintained in the PyPI.
+  - pip
+  - pip:
+      - pyyaml>=5.3.1,<6.0.0
+      - pytest>=5.4.3,<6.0.0
+      # View visualizations by Altair (see altair above) in-browser:
+      - altair_viewer>=0.3.0,<1.0.0
+      # Meta Graph library (uses networkx above).
+      # TODO(kdevo): Currently, the dev branch is embedded as a submodule
+#      - grapresso<=1.0.0

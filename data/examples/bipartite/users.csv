@@ -1,0 +1,10 @@
+# Synthetic dataset with 5 unique feat. and 6 users
+id,gender,favorite-drink
+Yannick,male,beer
+Kai,male,coffee
+Ivan,male,coffee
+
+Anna,female,tea
+Louisa,female,tea
+Christina,female,beer
+Natalia,female,tea

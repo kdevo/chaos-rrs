@@ -1,0 +1,136 @@
+fragments: >-
+  fragment costs on Query {
+    rateLimit {
+      limit
+      cost
+      remaining
+      resetAt
+    }
+  }
+  fragment userInfo on User {
+      bio
+      avatarUrl
+      email
+      name
+      company
+      location
+      url
+      twitterUsername
+      websiteUrl
+      isBountyHunter
+      isCampusExpert
+      isDeveloperProgramMember
+      isHireable
+      isSiteAdmin
+      hasSponsorsListing
+      pinnedItemsRemaining
+  }
+  fragment repoInfo on Repository {
+      stargazerCount
+      diskUsage
+      forkCount
+      languages(first: 5) { nodes { name } }
+      primaryLanguage { name }
+      name
+      description
+      isEmpty
+      isArchived
+      isDisabled
+      isLocked
+      isMirror
+      isTemplate
+      isFork
+      homepageUrl
+      pushedAt
+      repositoryTopics(first: 20) {
+        nodes {
+          topic {
+            name
+            stargazerCount
+          }
+        }
+      }
+      licenseInfo {
+        nickname
+      }
+  }
+  fragment readmeContent on Repository {
+    object(expression: "HEAD:README.md") {
+      ... on Blob {
+        text
+      }
+    }
+  }
+  fragment repoMentionableUsers on Repository {
+    mentionableUsers(first: 20) {
+      edges {
+        node {
+          login
+        }
+      }
+    }
+  }
+  fragment repoStargazerUsers on Repository {
+      stargazers(first: 20) {
+        nodes {
+          login
+        }
+      }
+  }
+  fragment starredRepoOwners on User {
+    starredRepositories(first: 20, orderBy: {field: STARRED_AT, direction: DESC}, ownedByViewer: false) {
+      nodes {
+        owner {
+           ... on User {
+              login
+           }
+        }
+      }
+    }
+  }
+  fragment followers on User {
+    followers(first: 30) {
+      nodes {
+        login
+      }
+    }
+  }
+  fragment following on User {
+    following(first: 30) {
+      nodes {
+        login
+      }
+    }
+  }
+query: >-
+  query QueryUser($login: String!) {
+    ...costs
+    user(login: $login) {
+      ...userInfo
+      aboutRepo: repository(name: $login) {
+        ... readmeContent
+      }
+      repositories(privacy: PUBLIC, orderBy: {field: STARGAZERS, direction: DESC}, first: 10) {
+        nodes {
+          ...repoInfo
+          ...repoMentionableUsers
+          ...repoStargazerUsers
+        }
+      }
+      ...followers
+      ...following
+      ...starredRepoOwners
+    }
+  }
+interactions:
+  starred:
+    strength: 1.0
+    fragment_in: repoStargazerUsers
+    fragment_out: starredRepoOwners
+  communicated:
+    strength: 3.0
+    fragment: repoMentionableUsers
+  follow:
+    strength: 6.0
+    fragment_in: followers
+    fragment_out: following
