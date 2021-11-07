@@ -2,36 +2,35 @@ name: chaos
 dependencies:
   # Supported Python version (conda is language-agnostic)
   - python=3.8
-  # DataModel:
-  - pandas
+  # Data model:
+  - pandas=1.3.4
   # Feature Engineering etc.:
-  - scikit-learn
+  - scikit-learn=1.0.1
   # Graph library (used by grapresso):
-  - networkx=2.5
+  - networkx=2.5.1
   # Plotting:
-  - matplotlib
+  - matplotlib=3.4.3
   # Possible CLI capabilities in the future:
-  - click
+  - click=8.0.3
   # Progress bar:
-  - tqdm
-  # For projection of embeddings
-  - tensorflow=2.3.0
-  - beautifulsoup4
-  - markdown
+  - tqdm=4.50.2
+  # For projection of embeddings:
+  - tensorflow=2.6.0
+  # Processing metadata:
+  - beautifulsoup4=4.9.1
+  - markdown=3.3.2
   # ------------------------------------
   # From conda-forge (community-managed):
-  - conda-forge::jupyterlab=2.1.0
+  - conda-forge::jupyterlab=3.2.0
   # NLP
-  - conda-forge::spacy=2.3.0
-#  - conda-forge::spacy-model-en_core_web_sm=2.3.0
-  - conda-forge::spacy-model-en_core_web_md=2.3.0
-  # Hybrid Model:
-  # Fixed version (newest version lightfm-1.15-py38hab2c0dc_1002-conda-forge/linux-64 is faulty):
-  - conda-forge::lightfm==1.15=py38hc1659b7_1001
+  - conda-forge::spacy=2.3.7
+  - conda-forge::spacy-model-en_core_web_md=2.3.1
+  # Hybrid RS latent factor model:
+  - conda-forge::lightfm=1.15
   # Visualizations:
-  - conda-forge::altair
+  - conda-forge::altair=4.1.0
   # Hyperparameter Tuning:
-  - conda-forge::optuna
+  - conda-forge::optuna=2.10.0
   # GraphQL for GitHub example:
   - conda-forge::gql=2.0.0
   # Development dependencies:
@@ -41,7 +40,6 @@ dependencies:
   # We use conda as a package manager, but pip for 3rd party packages that are better maintained in the PyPI.
   - pip
   - pip:
-      - pyyaml>=5.3.1,<6.0.0
       - pytest>=5.4.3,<6.0.0
       # View visualizations by Altair (see altair above) in-browser:
       - altair_viewer>=0.3.0,<1.0.0
